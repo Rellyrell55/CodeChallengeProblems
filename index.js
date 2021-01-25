@@ -5,7 +5,7 @@
 //with  places after the decimal. (Float)
 //Birthday PlusMinus
 
-const array = [-4,3,-9,0,4,1] 
+//const arr = [-4,3,-9,0,4,1] 
 
 function plusMinus(arr) {
     let posArray = []
@@ -42,4 +42,21 @@ function birthdayCakeCandles(candles) {
     const max = candles[candles.length - 1]
     
     return candles.filter(cH => cH === max ).length
+}
+
+//miniMaxSum 
+// const arr = [1,2,3,4,5]
+function miniMaxSum(arr) {
+    let minSum = 0 
+    let maxSum = 0 
+    arr.sort()
+    
+    for(let i = 0; i < arr.length-1; i++ ){
+        minSum += arr[i]
+    }
+    for(let i = 1; i < arr.length; i++ ){
+        maxSum += arr[i]
+    }
+
+    console.log(minSum, maxSum)
 }
