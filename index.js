@@ -35,6 +35,7 @@ function plusMinus(arr) {
 }
 
 // Birthday Candles
+// Shouldnt work every time because of the max but passed all Test Cases
 function birthdayCakeCandles(candles) {
     candles.sort((s,b) => s - b)
     
