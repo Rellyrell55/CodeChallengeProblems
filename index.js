@@ -3,6 +3,7 @@
 //calculate the ratios of its elements that are positive, negative, and zero.
 //Print the decimal value of each fraction on a new line 
 //with  places after the decimal. (Float)
+//Birthday PlusMinus
 
 const array = [-4,3,-9,0,4,1] 
 
@@ -31,4 +32,13 @@ function plusMinus(arr) {
     console.log(posFloat.toFixed(6))
     console.log(negFloat.toFixed(6))
     console.log(zeroFloat.toFixed(6))
+}
+
+// Birthday Candles
+function birthdayCakeCandles(candles) {
+    candles.sort((s,b) => s - b)
+    
+    const max = candles[candles.length - 1]
+    
+    return candles.filter(cH => cH === max ).length
 }
