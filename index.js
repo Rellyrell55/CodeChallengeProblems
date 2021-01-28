@@ -10,7 +10,7 @@
 function plusMinus(arr) {
     let posArray = []
     let negArray = []
-    let zeroArray =[]
+    let zeroArray = []
     let lth = arr.length
     
     arr.forEach((num) => {
@@ -37,7 +37,7 @@ function plusMinus(arr) {
 // Birthday Candles
 // Shouldnt work every time because of the max but passed all Test Cases
 function birthdayCakeCandles(candles) {
-    candles.sort((s,b) => s - b)
+    candles.sort((a,b) => a - b)
     
     const max = candles[candles.length - 1]
     
@@ -59,4 +59,21 @@ function miniMaxSum(arr) {
     }
 
     console.log(minSum, maxSum)
+}
+
+//Grading Students
+// Not quit finished Problem with rounding 
+function gradingStudents(grades) {
+    let roundedGrades = []
+    
+    for(let i = 0; i < grades.length; i++){
+        
+        if (grades[i] < 40){
+            roundedGrades.push(grades[i])
+        }
+        if (grades[i]+2 === Math.ceil(grades[i]/5)*5 ){
+            roundedGrades.push(grades[i])
+        }
+    }
+
 }
