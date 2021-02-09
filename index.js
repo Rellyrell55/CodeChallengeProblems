@@ -29,9 +29,9 @@ function plusMinus(arr) {
     let negFloat = (negArray.length / lth)
     let zeroFloat = (zeroArray.length / lth)
     
-    console.log(posFloat.toFixed(6))
-    console.log(negFloat.toFixed(6))
-    console.log(zeroFloat.toFixed(6))
+    // console.log(posFloat.toFixed(6))
+    // console.log(negFloat.toFixed(6))
+    // console.log(zeroFloat.toFixed(6))
 }
 
 // Birthday Candles
@@ -58,7 +58,7 @@ function miniMaxSum(arr) {
         maxSum += arr[i]
     }
 
-    console.log(minSum, maxSum)
+    //console.log(minSum, maxSum)
 }
 
 //Grading Students
@@ -77,3 +77,33 @@ function gradingStudents(grades) {
     }
 
 }
+
+//Spelling Bee Launch 
+const words = ["aaaa", "asas", "able", "ability", "actt", "actor", "access"];
+const puzzles = [
+  "aboveyz",
+  "abrodyz",
+  "abslute",
+  "absoryz",
+  "actresz",
+  "gaswxyz"
+]
+
+const findNumOfValidWords = (words, puzzles) => {
+    var sum;
+    return puzzles.map(puzzle => {
+      sum = 0;
+      return words.reduce(
+        (sum, nextWord) => sum + isValid(nextWord, puzzle),
+        false
+      );
+    });
+  };
+
+  const isValid = (word, puzzle) => {
+    let conditionOne = word.match(puzzle[0]) !== null ? true : false;
+    let conditionTwo = word.split("").every(letter => puzzle.match(letter));
+    return conditionOne & conditionTwo;
+  };
+
+console.log(findNumOfValidWords(words, puzzles))
