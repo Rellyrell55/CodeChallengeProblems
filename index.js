@@ -107,3 +107,95 @@ const findNumOfValidWords = (words, puzzles) => {
   };
 
 console.log(findNumOfValidWords(words, puzzles))
+
+
+
+
+
+var gameOfLife = function(board) {
+    //Make a 2d array for all possibilities for direction (8)
+    let dirs = [
+        [0, -1],
+        [0, 1],
+        [1, 0],
+        [-1, 0],
+        [1, 1],
+        [1, -1],
+        [-1, 1],
+        [-1, -1]
+    ];
+    // number of rows
+    let r = board.length;
+    
+    //number of columns 
+    let c = board[0].length
+    
+    //Creating a new board with same demetions of the input filled with 0 
+    let b = new Array(r).fill(0).map(() => new Array(c).fill(0));
+
+    //the start for looping trough both rows and coulmns 
+    for (let i = 0; i < r; i++) {
+        for (let j = 0; j < c; j++) {
+            
+            //start a count to find all the lifes
+            let count = 0;
+            
+            //now loop through the directions 
+            for (let k = 0; k < 8; k++) {
+                
+                //making new rows in coulmns with the re
+                let i1 = i + dirs[k][0];
+                let j1 = j + dirs[k][1];
+
+                //Check for out of bounds the new board
+                //if out of bounds will come back as undefined other wise incement count
+                if (board[i1] && board[i1][j1] == 1) count++
+
+            }
+
+
+            // Determine if live or dead
+            if (board[i][j] == 1) {
+                //live cell if count is = to 3 or 2
+                if (count == 2 || count == 3) {
+                    b[i][j] = 1
+                }
+            } else {
+                //dead cell
+                //becomes live cell if count is = 3
+                if (count == 3) {
+                    b[i][j] = 1
+                }
+            }
+        }
+    }
+    //must return original board so a loop to make the boards the same
+    for (let i = 0; i < r; i++) {
+        for (let j = 0; j < c; j++) {
+            //input board is = to the values of created board 
+            board[i][j] = b[i][j]
+        }
+    }
+
+};
+
+//Flight length i use for a code challenge for skilled
+flightLength = 160
+
+movieLength = [80, 110, 40]
+
+
+
+function flightMoives(flightLength, movieLength){
+    let watchable = false
+    const movieObj = {}
+
+    movieLength.forEach((movie)  => { 
+        let target = flightLength - movie
+        if (movieObj[target]){
+            watchable = true
+        }
+        movieObj[movie] = "anything" 
+    })
+    return watchable
+}
